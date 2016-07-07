@@ -11,7 +11,7 @@ email: yangxinlei007@live.com
 description: > # this means to ignore newlines until "baseurl:"
   欢迎访问我的博客，转载请注明。
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://yourdomain.com" # the base hostname & protocol for your site
+url: "https://yangxinlei.github.io" # the base hostname & protocol for your site
 twitter_username: nil
 github_username:  yangxinlei
 
