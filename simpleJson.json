@@ -1,0 +1,39 @@
+---
+layout: null
+---
+{
+    "bloger":
+    {
+        "name":"{{site.title}}",
+        "url":"{{site.url}}"
+    },
+    "twitter":
+    {
+        "name":"{{site.title}}",
+        "url":"{{site.url}}"
+    },
+    "posts":
+    [
+        {% for post in site.posts %}
+        {
+            "title":"{{post.title}}",
+            "url":"{{site.url}}{{post.url}}",
+            "date":"{{post.date|date_to_string}}"
+            "tags":
+            [
+                {% for tag in post.categories %}
+                {"tag":{{tag}}"},
+                {% endfor %}
+            ]
+            "likes":15
+            "commits":
+            [
+                {"commit":"你好"},
+                {"commit":"不错"}
+            ]
+            
+        }{% if forloop.last == false %},{% endif %}
+        {% endfor %}    
+    ]
+}   
+    
