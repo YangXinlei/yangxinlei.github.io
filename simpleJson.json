@@ -4,7 +4,7 @@ layout: null
 {
     "bloger":
     {
-        "name":"{{site.title}}",
+        "name":"{{site.title | xml_escape}}",
         "url":"{{site.url}}"
     },
     "twitter":
