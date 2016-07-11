@@ -21,10 +21,10 @@ layout: null
             "date":"{{post.date|date_to_xmlschema}}",
             "tags":"{{post.categories | array_to_sentence_string }}",
             "likes":15,
-            "commits":
+            "comments":
             [
-                {"commit":"你好"},
-                {"commit":"不错"}
+                {"comment":"你好", "date":"{{post.date|date_to_xmlschema}}"},
+                {"comment":"不错", "date":"{{post.date|date_to_xmlschema}}"}
             ]
         }{% if forloop.last == false %},{% endif %}
         {% endfor %}    
