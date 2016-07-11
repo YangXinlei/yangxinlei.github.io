@@ -2,9 +2,9 @@
 layout: null
 ---
 {
-    "bloger":
+    "blogger":
     {
-        "name":"{{ site.title | xml_escape }}",
+        "name":"杨鑫磊",
         "url":"{{site.url}}"
     },
     "twitter":
@@ -23,8 +23,8 @@ layout: null
             "likes":15,
             "comments":
             [
-                {"comment":"你好", "date":"{{post.date|date_to_xmlschema}}"},
-                {"comment":"不错", "date":"{{post.date|date_to_xmlschema}}"}
+                {"comment":"你好，请问第1行代码什么意思？", "date":"{{post.date|date_to_xmlschema}}"},
+                {"comment":"这片文章不错，很适合初学者，感谢lz分享。向lz学习。另外，IT之家❤推出一款真皮皮带，价格实惠大家赶快去抢啊，手慢无～～～", "date":"{{post.date|date_to_xmlschema}}"}
             ]
         }{% if forloop.last == false %},{% endif %}
         {% endfor %}    
