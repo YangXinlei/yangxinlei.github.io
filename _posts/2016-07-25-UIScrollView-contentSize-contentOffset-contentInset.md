@@ -6,9 +6,9 @@ categories: ios
 ---
 
 ```objc
-@property(nonatomic)         CGPoint                      contentOffset;                  // default CGPointZero
-@property(nonatomic)         CGSize                       contentSize;                    // default CGSizeZero
-@property(nonatomic)         UIEdgeInsets                 contentInset;                   // default UIEdgeInsetsZero. add additional scroll area around content
+@property(nonatomic)    CGPoint contentOffset;  // default CGPointZero
+@property(nonatomic)    CGSize  contentSize;    // default CGSizeZero
+@property(nonatomic)    UIEdgeInsets    contentInset;   // default UIEdgeInsetsZero. add additional scroll area around content
 ```
 
 ## contentSize
@@ -25,11 +25,12 @@ categories: ios
 
 在`contentSize`四周加一个边框。
 
-注意,当contentInset不为UIEdgeInsetsZero时,如果不对`frame`的`origin`进行设置,初始情况下的布局可能会是这样:
+注意,当contentInset不为UIEdgeInsetsZero时,如果不对`frame`的`origin`进行设置,初始情况下的布局可能看起来像这样:
+
 ![default](/src/images/20160725/default.png)
 
 
-stanford ios课程里的截图:
+附stanford ios课程里的截图:
 
 ![contentInset](/src/images/20160725/contentInset.png)
 
