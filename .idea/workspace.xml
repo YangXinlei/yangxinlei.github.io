@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c67e4c7c-5783-49de-bd83-fa1af377fc7f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2016-07-19-此贴记录偶遇的那些好文.md" afterPath="$PROJECT_DIR$/_posts/2016-07-19-此贴记录偶遇的那些好文.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vr.html" afterPath="$PROJECT_DIR$/vr.html" />
     </list>
     <ignored path="yangxinlei.github.io.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -99,7 +99,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2016-07-19-此贴记录偶遇的那些好文.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="2016-07-19-此贴记录偶遇的那些好文.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_posts/2016-07-19-此贴记录偶遇的那些好文.md">
           <provider editor-type-id="MarkdownFxPreviewEditor">
             <state />
@@ -111,6 +111,16 @@
                 <folding />
               </first_editor>
               <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vr.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/vr.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="148" selection-start-line="12" selection-start-column="148" selection-end-line="12" selection-end-column="148" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -141,6 +151,7 @@
       <list>
         <option value="$PROJECT_DIR$/_posts/2016-07-25-UIScrollView-contentSize-contentOffset-contentInset.md" />
         <option value="$PROJECT_DIR$/_posts/2016-07-19-此贴记录偶遇的那些好文.md" />
+        <option value="$PROJECT_DIR$/vr.html" />
       </list>
     </option>
   </component>
@@ -151,8 +162,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="223" />
-    <option name="y" value="-897" />
+    <option name="x" value="132" />
+    <option name="y" value="-877" />
     <option name="width" value="1225" />
     <option name="height" value="737" />
   </component>
@@ -322,15 +333,15 @@
       <workItem from="1469251261345" duration="75000" />
       <workItem from="1469417344050" duration="129000" />
       <workItem from="1469417486969" duration="3443000" />
-      <workItem from="1470797560297" duration="384000" />
+      <workItem from="1470797560297" duration="736000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4031000" />
+    <option name="totallyTimeSpent" value="4383000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="223" y="-897" width="1225" height="737" extended-state="0" />
+    <frame x="132" y="-877" width="1225" height="737" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24979591" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -576,6 +587,14 @@
             <folding />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vr.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="148" selection-start-line="12" selection-start-column="148" selection-end-line="12" selection-end-column="148" />
+          <folding />
         </state>
       </provider>
     </entry>
