@@ -13,10 +13,14 @@ categories: ios cookbook
 
 {% highlight objc %}
 UIWindow *window = self.view.window;
+...
+// 令overlayView捕获所有触摸事件,从而阻止这些事件到达下方的其他GUI
+overlayView.userInteractionEnabled = YES;
+...
 [window addSubview:overlayView];
 {% endhighlight %}
 
-* 弹出数秒后消失
+# 弹出数秒后消失
 
 {% highlight objc %}
 [self performSelector:@selector(removeOverlay:) withObject:overlayView afterDelay:5.0f];
@@ -36,3 +40,9 @@ UIWindow *window = self.view.window;
     [overlayView removeFromSuperview];
 }
 {% endhighlight %}
+
+# 关于userInteractionEnabled
+
+对于`UIView`该值默认为`YES`,在本例中若设置`overlayView`的`userInteractionEnabled`为`NO`效果是这样的:
+
+![bug](/src/images/cookbook_gif/3-3/3-31.gif)
