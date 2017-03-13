@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+</head>
+<body>
+<canvas id="mc" style="border:1px solid red; margin:0 auto; display: block;" width="600" height="600"></canvas>
+<script type="text/javascript">
+	class Circle{
+		constructor(x, y, r, c = "#000"){
+			this.x = x;
+			this.y = y;
+			this.r = r;
+			this.c = c;
+		}
+	}
+
+	let drawCircle = function(context, circle) {
+		context.fillStyle=circle.c;
+		context.beginPath();
+		context.arc(circle.x, circle.y, circle.r, 0, Math.PI * 2, true);
+		context.closePath();
+		context.fill();
+	};
+
+	let drawCircleArray = function(context, circleArray) {
+
+		circleArray.forEach( (circle) => drawCircle(context, circle) );
+
+	}
+
+	let splitCircle = function (circle) {
+		let radius = circle.r / 2.0;
+		return [
+			new Circle(circle.x - radius, circle.y - radius, radius, circle.c),
+			new Circle(circle.x + radius, circle.y - radius, radius, circle.c),
+			new Circle(circle.x + radius, circle.y + radius, radius, circle.c),
+			new Circle(circle.x - radius, circle.y + radius, radius, circle.c)
+		];
+	}
+
+	let c = document.getElementById("mc");
+	let context = c.getContext("2d");
+	
+	let firstCircle = new Circle(c.offsetWidth / 2.0, c.offsetHeight / 2.0, Math.min(c.offsetWidth / 2.0, c.offsetHeight / 2.0));
+	let circleArray = [firstCircle];
+
+var canvas = document.createElement("canvas");
+
+    var ctx = canvas.getContext("2d");
+
+	var img = new Image();
+	    img.crossOrigin = 'anonymous';
+	    	img.src = "https://github.com/YangXinlei/yangxinlei.github.io/blob/master/src/images/20160825/right.png";
+
+	    	var imgWidth = img.width || img.naturalWidth || 200;
+var imgHeight = img.height || img.naturalHeight || 200;
+    canvas.width = imgWidth;   
+    canvas.height = imgHeight;
+
+    img.onload = function() {
+    	console.log('abc');
+    	          ctx.drawImage(img,0,0);
+    var cd = ctx.getImageData(0, 0, imgWidth, imgHeight);
+    console.log(cd);
+    }
+    document.body.appendChild(img);
+
+
+	setInterval(() => {
+		let head = circleArray.shift();
+		let headSplits = splitCircle(head);
+		circleArray = circleArray.concat(headSplits);
+		context.clearRect(head.x - head.r, head.y - head.r, head.r * 2, head.r * 2);
+		drawCircleArray(context, headSplits);
+	}, 1000);
+
+</script>
+
+</body>
+</html>
