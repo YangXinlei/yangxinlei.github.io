@@ -40,45 +40,71 @@
 		];
 	}
 
+	// 获取图片指定区域颜色均值
+	let getSumColor = function (imgCtx, x, y, w, h) {
+		let rlt = [0, 0, 0, 0];
+
+		let pixData;
+		for (let i = x; i < x + w; ++i) {
+			for (let j = y; j < y + h; ++j) {
+				pixData = imgCtx.getImageData(i, j, 1, 1).data;
+				rlt[0] += pixData[0] / 255.0;
+				rlt[1] += pixData[1] / 255.0;
+				rlt[2] += pixData[2] / 255.0;
+				rlt[3] += pixData[3] / 255.0;
+			}
+		}
+
+		return "#" + Math.floor(rlt[0] / (w * h) * 255.0).toString(16) + Math.floor(rlt[1]  / (w * h) * 255.0).toString(16) + Math.floor(rlt[2] / (w * h) * 255.0).toString(16) ;
+		//+ Math.floor(rlt[3] / (w * h) * 255.0).toString(16);
+	}
+
+
+	let drawCircleByImgCtx = function(context, circle, imgCtx) {
+		let color = getSumColor(imgCtx, (circle.x - circle.r)/ 2.0, (circle.y - circle.r) / 2.0, circle.r, circle.r);
+		console.log(color);
+		context.fillStyle=color;
+		context.beginPath();
+		context.arc(circle.x, circle.y, circle.r, 0, Math.PI * 2, true);
+		context.closePath();
+		context.fill();
+	};
+
+	let drawCircleArrayByImgCtx = function(context, circleArray, imgCtx) {
+
+		circleArray.forEach( (circle) => drawCircleByImgCtx(context, circle, imgCtx) );
+
+	}
+
+	var canvas = document.createElement("canvas");
+    var ctx = canvas.getContext("2d");
+	var img = new Image();
+    img.crossOrigin = 'anonymous';
+	img.src = "http://yangxinlei.github.io/src/images/20160725/contentInset.png";
+
+	var imgWidth = img.width || img.naturalWidth || 300;
+	var imgHeight = img.height || img.naturalHeight || 300;
+    canvas.width = imgWidth;   
+    canvas.height = imgHeight;
+    img.onload = function() {
+      ctx.drawImage(img,0,0);
+    }
+    document.body.appendChild(img);
+
+
 	let c = document.getElementById("mc");
 	let context = c.getContext("2d");
 	
 	let firstCircle = new Circle(c.offsetWidth / 2.0, c.offsetHeight / 2.0, Math.min(c.offsetWidth / 2.0, c.offsetHeight / 2.0));
 	let circleArray = [firstCircle];
 
-var canvas = document.createElement("canvas");
-
-    var ctx = canvas.getContext("2d");
-
-	var img = new Image();
-	    img.crossOrigin = 'anonymous';
-	    	img.src = "http://yangxinlei.github.io/src/images/20160725/contentInset.png";
-
-	    	var imgWidth = img.width || img.naturalWidth || 200;
-var imgHeight = img.height || img.naturalHeight || 200;
-    canvas.width = imgWidth;   
-    canvas.height = imgHeight;
-
-    img.onload = function() {
-    	console.log('abc');
-    	          ctx.drawImage(img,0,0);
-    var cd = ctx.getImageData(0, 0, imgWidth, imgHeight);
-    console.log(cd);
-	    
-	    
-    var imgData = ctx.getImageData(10, 10, 1, 1).data;
-    console.log(imgData);
-    }
-    document.body.appendChild(img);
-
-
 	setInterval(() => {
 		let head = circleArray.shift();
 		let headSplits = splitCircle(head);
 		circleArray = circleArray.concat(headSplits);
 		context.clearRect(head.x - head.r, head.y - head.r, head.r * 2, head.r * 2);
-		drawCircleArray(context, headSplits);
-	}, 1000);
+		drawCircleArrayByImgCtx(context, headSplits, ctx);
+	}, 5);
 
 </script>
 
