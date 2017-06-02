@@ -93,46 +93,47 @@ static MyManager *sharedMyManager = nil;
 
 在这种实现方式下，如果想要得到*使用安全*方面的保证（或者*部分保证*），有下述方式可以尝试：
 
- 1. 告知编译器不允许调用`init`方法：
+ 1.告知编译器不允许调用`init`方法：
 
- 	```objc
- 	// MyManager.h
- 	- (instancetype)init __attribute__((unavailable("Cannot use init for this class, use +(ArcSingleton*)sharedInstance instead!")));
- 	```
+```objc
+// MyManager.h
+- (instancetype)init __attribute__((unavailable("Cannot use init for this class, use +(ArcSingleton*)sharedInstance instead!")));
+```
  	
- 2. 如果还觉得不够，想要在运行时也做到调用禁止，可以这样：
- 
-	```objc
-	
-	@implementation MyClass
-	
-	static BOOL useinside = NO;
-	static id _sharedObject = nil;
-	
-	
-	+(id) alloc {
-	    if (!useinside) {
-	        @throw [NSException exceptionWithName:@"Singleton Vialotaion" reason:@"You are violating the singleton class usage. Please call +sharedInstance method" userInfo:nil];
-	    }
-	    else {
-	        return [super alloc];
-	    }
-	}
-	
-	+(id)sharedInstance
-	{
-	    static dispatch_once_t p = 0;
-	    dispatch_once(&p, ^{
-	        useinside = YES;
-	        _sharedObject = [[MyClass alloc] init];
-	        useinside = NO;
-	    });   
-	    // returns the same object each time
-	    return _sharedObject;
-	}
-	
-	```
-	> *见 [stackoverflow](http://stackoverflow.com/questions/5720029/create-singleton-using-gcds-dispatch-once-in-objective-c/18382143#18382143)*
+2.如果还觉得不够，想要在运行时也做到调用禁止，可以这样：
+
+```objc
+
+@implementation MyClass
+
+static BOOL useinside = NO;
+static id _sharedObject = nil;
+
+
++(id) alloc {
+		if (!useinside) {
+				@throw [NSException exceptionWithName:@"Singleton Vialotaion" reason:@"You are violating the singleton class usage. Please call +sharedInstance method" userInfo:nil];
+		}
+		else {
+				return [super alloc];
+		}
+}
+
++(id)sharedInstance
+{
+		static dispatch_once_t p = 0;
+		dispatch_once(&p, ^{
+				useinside = YES;
+				_sharedObject = [[MyClass alloc] init];
+				useinside = NO;
+		});   
+		// returns the same object each time
+		return _sharedObject;
+}
+
+```
+
+> *见 [stackoverflow](http://stackoverflow.com/questions/5720029/create-singleton-using-gcds-dispatch-once-in-objective-c/18382143#18382143)*
 
 有两个地方值得注意。
 
