@@ -33,9 +33,10 @@ categories: ios
 @end
 ```
 
-没错，拿到delegate的class，并施展swizzle大法。无需关心具体是那个类。
+没错，拿到delegate的class，并施展swizzle大法。无需关心具体是哪个类。
 
 剩下的唯一问题是：怎么给这个类添加上`swizz_tableView:didSelectRowAtIndexPath:`方法呢？
+
 我想到的一个简单的解决办法是把这个方法直接添加到`NSObject`里。我们可以使用一个**分类**来做这件事情。
 
 ```objc
