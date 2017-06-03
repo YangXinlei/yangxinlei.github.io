@@ -140,3 +140,7 @@ static id _sharedObject = nil;
  1.  如果像非ARC那样加上`allocWithZone:`并使用 `[MyManager alloc] init]`初始化，会在`dispatch_once`那里崩掉。
  2.  在`dispatch_once`里面的初始化，无论是向`self`、`[self class]`、`MyManager`发`alloc`消息应该都是一样的。三者都是`MyManager`。
  3.  `NSObject`协议本身不支持`copy`，所以`copy`方法不是必须的。（如果没有，调用(*当然*)会崩溃）
+
+----
+
+最近在sunnyxx大神的博客中看到一个[脑洞很大的方案](http://blog.sunnyxx.com/2016/05/14/clang-attributes/)。利用 `__attribute__((objc_runtime_name(...)))`和`__attribute__((constructor))`在运行时动态替换`+ alloc`，`- init` 等方法直接返回 `+ sharedInstance` 单例。遗憾的是，大神只提供了思路。等啥时候有空了实现下看看。
