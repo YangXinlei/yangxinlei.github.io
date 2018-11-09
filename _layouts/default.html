@@ -3,6 +3,8 @@
 
   {% include head.html %}
 
+  <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
+
   <body>
 
     {% include header.html %}
@@ -12,7 +14,8 @@
         {{ content }}
       </div>
     </div>
-
+    commentBox('my-project-id');
+    <br />
     {% include footer.html %}
 
   </body>
