@@ -70,6 +70,7 @@ server {
 使用Node.js处理路由器的IP更新请求：[github地址](https://github.com/YangXinlei/MyCloudPC/blob/master/ddns_report.js)
 
 ![更新邮件](/src/images/20181020/email.jpg)
+
 (由于会动态变化，其实打码不是很必要)
 
 *至此一切准备就绪*
