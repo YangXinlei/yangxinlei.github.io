@@ -67,9 +67,11 @@ server {
 }
 ```
 
-使用Node处理路由器的IP更新请求：（[github地址](https://github.com/YangXinlei/MyCloudPC/blob/master/ddns_report.js)）
+使用Node.js处理路由器的IP更新请求：[github地址](https://github.com/YangXinlei/MyCloudPC/blob/master/ddns_report.js)
 
-一切准备就绪
+*至此一切准备就绪*
+
+* * *
 
 #### 真远程唤醒
 
@@ -88,12 +90,14 @@ location /wake {
 }
 ```
 
-[使用Node.js实现的唤醒接口](https://github.com/YangXinlei/MyCloudPC/blob/master/wakeup.js)
+使用Node.js简单几行代码实现的唤醒接口：[github地址](https://github.com/YangXinlei/MyCloudPC/blob/master/wakeup.js)
 
 ### 远程桌面
 
-微软远程桌面（RD Client）在主流平台都有提供，如果是mac系统，目前App Store下架了，国内ID可以考虑下载beta版。配置很简单:
+微软远程桌面（RD Client）在主流平台都有提供，如果是mac系统，目前App Store下架了，国内ID可以考虑下载beta版。配置很简单(这是个假ip):
 ![RDConf](/src/images/20181020/RDConf.png)
+端口号默认是3389所以这里其实可以不写
+*唯一的麻烦是需要经常翻邮件并手动替换这里的地址*
 
 ### 结果很酷
 
